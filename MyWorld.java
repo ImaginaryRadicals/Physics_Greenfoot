@@ -19,7 +19,12 @@ public class MyWorld extends World
         super(600, 400, 1); 
         prepare();
     }
-
+    public void act() {
+        if(Greenfoot.mouseClicked(null) ) {
+            Ball ball = new Ball();
+            addObject(ball,0,0);
+        }
+    }
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
