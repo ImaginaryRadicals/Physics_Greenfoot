@@ -18,7 +18,7 @@ public abstract class Physics extends Actor
     {
        applyAcceleration();
        applyVelocity();
-       applyRocket();
+       //applyRocket();
        resetAcceleration();
     }    
     
