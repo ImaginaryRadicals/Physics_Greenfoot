@@ -22,7 +22,7 @@ public class MyWorld extends World
     public void act() {
         if(Greenfoot.mouseClicked(null) ) {
             MouseInfo mouse = Greenfoot.getMouseInfo();
-            Vector ballStart = new Vector(mouse.getX(),0);
+            Vector ballStart = new Vector(getWidth()/2,getHeight()/2);
             Vector startingVelocity = new Vector(0,0);
             Ball ball = new Ball();
             addObject(ball,(int)ballStart.getX(),(int)ballStart.getY());
@@ -34,7 +34,7 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        Ball ball = new Ball(new Vector(0,-20));
-        addObject(ball,0,385);
+        Ball ball = new Ball(new Vector(10,-20));
+        addObject(ball,10,385);
     }
 }

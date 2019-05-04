@@ -11,12 +11,14 @@ public abstract class Physics extends Actor
     Vector velocity = new Vector(0,0);
     Vector acceleration = new Vector(0,0);
     Vector gravity = new Vector(0,1);
+    Vector rocket = new Vector(0.5,0); 
     double restitution = 1.0;
     
     public void act() 
     {
        applyAcceleration();
        applyVelocity();
+       applyRocket();
        resetAcceleration();
     }    
     
@@ -27,6 +29,10 @@ public abstract class Physics extends Actor
     public void applyVelocity() {
         setLocation( getX() + (int) velocity.getX(), 
             getY() + (int) velocity.getY());
+    }
+    
+    public void applyRocket() {
+        velocity.add(rocket);
     }
     
     public void resetAcceleration() {
