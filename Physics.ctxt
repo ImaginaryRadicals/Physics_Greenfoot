@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Physics
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Physics\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ applyAcceleration()
+comment3.params=
+comment3.target=void\ applyVelocity()
+comment4.params=
+comment4.target=void\ resetAcceleration()
+comment5.params=
+comment5.target=void\ addGravity()
+numComments=6
