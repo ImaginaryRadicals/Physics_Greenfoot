@@ -34,7 +34,7 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        Ball ball = new Ball(new Vector(10,-20));
+        Ball ball = new Ball(new Vector(0,-20));
         addObject(ball,0,385);
     }
 }
