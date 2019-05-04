@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Ball extends Physics
 {
-    double restitution = 1.1; // Overwrite Physics default.
+    double restitution = .9;  // Overwrite Physics default.
     
     Ball() {        
     }

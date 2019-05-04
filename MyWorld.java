@@ -8,7 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+    Vector ballStart = new Vector(0,getHeight());
+    Cannon cannon;
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -16,10 +18,24 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(600, 700, 1); 
         prepare();
     }
 
+    public void act() {
+        aimCannon();
+        if( Greenfoot.mouseClicked(null) ) {
+            MouseInfo mouse = Greenfoot.getMouseInfo();
+
+            double mouseSpeedScale = .1;
+            double xVel = mouseSpeedScale * (mouse.getX() - ballStart.getX());
+            double yVel = mouseSpeedScale * (mouse.getY() - ballStart.getY());
+            Vector startingVelocity = new Vector(xVel,yVel);
+            Ball ball = new Ball(startingVelocity);
+            addObject(ball,(int)ballStart.getX(),(int)ballStart.getY());
+        }
+    }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -28,5 +44,17 @@ public class MyWorld extends World
     {
         Ball ball = new Ball(new Vector(10,-20));
         addObject(ball,10,385);
+        
+        this.cannon = new Cannon();
+        addObject(this.cannon, (int) ballStart.getX(), (int) ballStart.getY() );
     }
+    
+    private void aimCannon() {
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if ( this.cannon != null && mouse != null) {
+            this.cannon.turnTowards( mouse.getX(), mouse.getY() );
+            this.cannon.turn(-90);
+        }
+    }
+    
 }
