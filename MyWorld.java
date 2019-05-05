@@ -44,6 +44,7 @@ public class MyWorld extends World
     {
         this.cannon = new Cannon();
         addObject(this.cannon,(int)ballStart.getX(),(int)ballStart.getY());
+        this.human = new Human();
         addObject(this.human, (int)humanStart.getX(),(int)humanStart.getY());
     }
     
