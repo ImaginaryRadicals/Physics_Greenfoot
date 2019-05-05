@@ -7,10 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class MyWorld extends World
-{
-    Vector ballStart = new Vector(0,getHeight());
-    Cannon cannon;
-    
+{   
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -23,8 +20,7 @@ public class MyWorld extends World
     }
 
     public void act() {
-        aimCannon();
-        shootOnClick();
+
     }
     
     /**
@@ -33,28 +29,12 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        this.cannon = new Cannon();
-        addObject(this.cannon, (int) ballStart.getX(), (int) ballStart.getY() );
+        
+        addObject(new Cannon(), 0, getHeight() );
     }
     
-    private void shootOnClick() {
-        if( Greenfoot.mouseClicked(null) ) {
-            MouseInfo mouse = Greenfoot.getMouseInfo();
-            double mouseSpeedScale = .1;
-            double xVel = mouseSpeedScale * (mouse.getX() - ballStart.getX());
-            double yVel = mouseSpeedScale * (mouse.getY() - ballStart.getY());
-            Vector startingVelocity = new Vector(xVel,yVel);
-            Ball ball = new Ball(startingVelocity);
-            addObject(ball,(int)ballStart.getX(),(int)ballStart.getY());
-        }
-    }
+
     
-    private void aimCannon() {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
-        if ( this.cannon != null && mouse != null) {
-            this.cannon.turnTowards( mouse.getX(), mouse.getY() );
-            this.cannon.turn(-90);
-        }
-    }
+
     
 }
