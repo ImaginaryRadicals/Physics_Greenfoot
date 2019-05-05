@@ -24,16 +24,7 @@ public class MyWorld extends World
 
     public void act() {
         aimCannon();
-        if( Greenfoot.mouseClicked(null) ) {
-            MouseInfo mouse = Greenfoot.getMouseInfo();
-
-            double mouseSpeedScale = .1;
-            double xVel = mouseSpeedScale * (mouse.getX() - ballStart.getX());
-            double yVel = mouseSpeedScale * (mouse.getY() - ballStart.getY());
-            Vector startingVelocity = new Vector(xVel,yVel);
-            Ball ball = new Ball(startingVelocity);
-            addObject(ball,(int)ballStart.getX(),(int)ballStart.getY());
-        }
+        shootOnClick();
     }
     
     /**
@@ -47,6 +38,18 @@ public class MyWorld extends World
         
         this.cannon = new Cannon();
         addObject(this.cannon, (int) ballStart.getX(), (int) ballStart.getY() );
+    }
+    
+    private void shootOnClick() {
+        if( Greenfoot.mouseClicked(null) ) {
+            MouseInfo mouse = Greenfoot.getMouseInfo();
+            double mouseSpeedScale = .1;
+            double xVel = mouseSpeedScale * (mouse.getX() - ballStart.getX());
+            double yVel = mouseSpeedScale * (mouse.getY() - ballStart.getY());
+            Vector startingVelocity = new Vector(xVel,yVel);
+            Ball ball = new Ball(startingVelocity);
+            addObject(ball,(int)ballStart.getX(),(int)ballStart.getY());
+        }
     }
     
     private void aimCannon() {
