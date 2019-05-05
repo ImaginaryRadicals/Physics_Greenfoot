@@ -33,9 +33,6 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        Ball ball = new Ball(new Vector(10,-20));
-        addObject(ball,10,385);
-        
         this.cannon = new Cannon();
         addObject(this.cannon, (int) ballStart.getX(), (int) ballStart.getY() );
     }

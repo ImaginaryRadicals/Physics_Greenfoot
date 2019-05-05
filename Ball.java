@@ -27,6 +27,7 @@ public class Ball extends Physics
         bounce();
         friction();
         super.act();
+        removeIfStationary();
     }    
     
     public void bounce() {
@@ -49,6 +50,13 @@ public class Ball extends Physics
         if( isAtEdge() ) {
             velocity.setX( velocity.getX() * 0.95);
         }
+    }
+    
+    public void removeIfStationary() {
+        if (velocity.getMagnitude() <= 1.0) {
+            removeThis();
+        }
+        
     }
     
 }

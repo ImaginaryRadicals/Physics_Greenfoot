@@ -52,6 +52,16 @@ public class Vector
         this.x = this.x + myVector.getX();
         this.y = this.y + myVector.getY();
     }
-
+    
+    public double getMagnitude() {
+        return Math.sqrt( Math.pow(x,2) + Math.pow(y,2)  );
+    }
+    
+    public void setMagnitude(double newMagnitude) {
+        double oldMagnitude = getMagnitude();
+        double scaleFactor = newMagnitude/oldMagnitude;
+        x = x * scaleFactor;
+        y = y * scaleFactor;
+    }
     
 }

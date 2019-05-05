@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public abstract class Physics extends Actor
+public abstract class Physics extends GameObject
 {
     Vector velocity = new Vector(0,0);
     Vector acceleration = new Vector(0,0);
@@ -37,5 +37,9 @@ public abstract class Physics extends Actor
         acceleration.add(gravity);
     }
     
+    
+    public double getVelocity() {
+        return velocity.getMagnitude();
+    }
 }
 
