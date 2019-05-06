@@ -29,8 +29,16 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        
+        // Cannon
         addObject(new Cannon(), 0, getHeight() );
+        // Linuses
+        for(int i=0; i<4; i++) {
+            addObject(new Linus(), 
+                getWidth() * (50 + Greenfoot.getRandomNumber(50))/100, 
+                Greenfoot.getRandomNumber(getHeight()));
+        }
+        // Missile
+        addObject(new Missile(),130,292);
     }
     
 

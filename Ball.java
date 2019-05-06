@@ -28,6 +28,7 @@ public class Ball extends Physics
         friction();
         super.act();
         removeIfStationary();
+        kill();
     }    
     
     public void bounce() {
@@ -57,6 +58,14 @@ public class Ball extends Physics
             removeThis();
         }
         
+    }
+    
+    public void kill() {
+        // Ensure this object hasn't been removed from the world yet.
+        if (getWorld() != null && isTouching(Linus.class)) {
+            removeTouching(Linus.class);
+            removeThis();
+        }
     }
     
 }

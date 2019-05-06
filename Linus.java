@@ -1,26 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GameObject here.
+ * Write a description of class Linus here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GameObject extends Actor
+public class Linus extends GameObject
 {
     /**
-     * Act - do whatever the GameObject wants to do. This method is called whenever
+     * Act - do whatever the Linus wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
         // Add your action code here.
     }    
-    
-    public void removeThis() {
-        World world = getWorld();
-        world.removeObject(this);
-    }
-    
-    
 }
