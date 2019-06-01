@@ -59,9 +59,14 @@ public class Vector
     
     public void setMagnitude(double newMagnitude) {
         double oldMagnitude = getMagnitude();
-        double scaleFactor = newMagnitude/oldMagnitude;
-        x = x * scaleFactor;
-        y = y * scaleFactor;
+        if (oldMagnitude == 0) {
+            x = newMagnitude; // Arbitrarily set angle to 0 degrees.
+            y = 0;
+        } else {
+            double scaleFactor = newMagnitude/oldMagnitude;
+            x = x * scaleFactor;
+            y = y * scaleFactor;
+        }
     }
     
 }

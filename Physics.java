@@ -37,6 +37,21 @@ public abstract class Physics extends GameObject
         acceleration.add(gravity);
     }
     
+    public double addGravity(int xLoc, int yLoc, double strength) {
+        // Force = G * mass1 * mass2 / range^2
+        // Acceleration = strength / distance^2
+        Vector gravityPosition = new Vector(xLoc,yLoc);
+        Vector myPosition = new Vector(getX(),getY());
+        // Distance
+        double xDist = gravityPosition.getX() - myPosition.getX();
+        double yDist = gravityPosition.getY() - myPosition.getY();
+        double distance = Math.sqrt( Math.pow(xDist,2) + Math.pow(yDist,2) );
+        double accelerationMagnitude = strength / Math.pow(distance,2);
+        Vector gravityAccel = new Vector(xDist,yDist);
+        gravityAccel.setMagnitude(accelerationMagnitude);
+        acceleration.add(gravityAccel);
+        return accelerationMagnitude;
+    }
     
     public double getVelocity() {
         return velocity.getMagnitude();

@@ -23,12 +23,14 @@ public class Ball extends Physics
      */
     public void act() 
     {
-        addGravity();
+        World world = getWorld();
+        //addGravity();
+        addGravity(world.getWidth()/2, world.getHeight()/2, 10000.0);
         bounce();
         friction();
         super.act();
-        removeIfStationary();
-        kill();
+        //removeIfStationary();
+        //();
     }    
     
     public void bounce() {
@@ -36,11 +38,13 @@ public class Ball extends Physics
             World myWorld = getWorld();  // To get world size
             int padding = 2; // Detect wall when this close
             // Horizontal Bounce
-            if( (getX() <= 0+padding) || (getX() >= myWorld.getWidth()-padding)) {
+            if( (getX() <= 0+padding) || (getX() >= myWorld.getWidth()-padding)) 
+            {
                 velocity.setX(-velocity.getX() * this.restitution);    
             }
             // Vertical Bounce
-            if( (getY() <= 0+padding) || (getY() >= myWorld.getHeight()-padding)) {
+            if( (getY() <= 0+padding) || (getY() >= myWorld.getHeight()-padding)) 
+            {
                 velocity.setY(-velocity.getY() * this.restitution);    
             }            
         }
