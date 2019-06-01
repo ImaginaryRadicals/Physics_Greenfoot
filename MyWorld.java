@@ -39,6 +39,7 @@ public class MyWorld extends World
         }
         // Missile
         addObject(new Missile(),130,292);
+        addObject(new Cursor(),getWidth()/2,getHeight()/2);
     }
     
 

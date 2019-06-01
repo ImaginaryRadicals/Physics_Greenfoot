@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Cannon extends GameObject
 {
-    
+
     public Cannon() {
     }
-    
+
     /**
      * Act - do whatever the Cannon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -21,7 +21,7 @@ public class Cannon extends GameObject
         aimCannon();
         shootOnClick();
     }    
-    
+
     private void aimCannon() {
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if ( mouse != null) {
@@ -29,17 +29,19 @@ public class Cannon extends GameObject
             turn(-90);
         }
     }
-    
+
     private void shootOnClick() {
-        if( Greenfoot.mouseClicked(null) ) {
+        if( Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")) {
             World world = getWorld();
             MouseInfo mouse = Greenfoot.getMouseInfo();
-            double mouseSpeedScale = .1;
-            double xVel = mouseSpeedScale * (mouse.getX() - getX());
-            double yVel = mouseSpeedScale * (mouse.getY() - getY());
-            Vector startingVelocity = new Vector(xVel,yVel);
-            Ball ball = new Ball(startingVelocity);
-            world.addObject(ball,getX(),getY());
+            if(mouse != null) {
+                double mouseSpeedScale = .1;
+                double xVel = mouseSpeedScale * (mouse.getX() - getX());
+                double yVel = mouseSpeedScale * (mouse.getY() - getY());
+                Vector startingVelocity = new Vector(xVel,yVel);
+                Ball ball = new Ball(startingVelocity);
+                world.addObject(ball,getX(),getY());
+            }
         }
     }
 }
