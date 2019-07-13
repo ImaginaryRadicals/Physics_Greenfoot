@@ -15,7 +15,7 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 700, 1); 
+        super(700, 700, 1); 
         prepare();
     }
 
@@ -30,7 +30,7 @@ public class MyWorld extends World
     private void prepare()
     {
         // Cannon
-        addObject(new Cannon(), 0, getHeight() );
+        addObject(new Cannon(), getWidth()/2, (int) (getHeight()*0.75) );
         // Linuses
         for(int i=0; i<4; i++) {
             addObject(new Linus(), 
@@ -40,6 +40,10 @@ public class MyWorld extends World
         // Missile
         addObject(new Missile(),130,292);
         addObject(new Cursor(),getWidth()/2,getHeight()/2);
+        
+        // Test Bomb, for gravity tuning
+        addObject(new Ball(new Vector(4,0)), getWidth()/2, getHeight()/2 + 150);
+        addObject(new Planet(), getWidth()/2, getHeight()/2);
     }
     
 

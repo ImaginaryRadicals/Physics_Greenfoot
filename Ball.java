@@ -25,7 +25,7 @@ public class Ball extends Physics
     {
         World world = getWorld();
         //addGravity();
-        addGravity(world.getWidth()/2, world.getHeight()/2, 10000.0);
+        addGravity(world.getWidth()/2, world.getHeight()/2, 2000.0);
         bounce();
         friction();
         super.act();
